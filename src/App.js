@@ -26,6 +26,7 @@ function App() {
 
     const array = csvRows.map((i) => {
       const values = i.split(",");
+
       const obj = csvHeader.reduce((object, header, index) => {
         header = removeR(header);
         values[index] = removeR(values[index]);
@@ -37,22 +38,25 @@ function App() {
             .split("/")
             .map((val) => Number(val));
 
-          object.birthday = {};
-          object.birthday.year = year;
-          object.birthday.month = month;
-          object.birthday.day = day;
+          object.birthday = {
+            year,
+            month,
+            day,
+          };
         } else if (header === "Registration") {
           const [year, month, day] = values[index]
             .split("/")
             .map((val) => Number(val));
 
-          object.startDate = {};
-          object.startDate.year = year;
-          object.startDate.month = month;
-          object.startDate.day = day;
+          object.startDate = {
+            year,
+            month,
+            day,
+          };
         }
         return object;
       }, {});
+
       return obj;
     });
 
