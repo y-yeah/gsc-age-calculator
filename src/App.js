@@ -74,8 +74,8 @@ function App() {
           <b>About Color</b>
           <div className="color-description-ul">
             <ul>
-              <li>Green: have more than a year until alumni</li>
-              <li>Yellow: will become alumni within a year</li>
+              <li>Green: have more than a year until graduation</li>
+              <li>Yellow: will graduate within a year</li>
               <li>Pink: already alumni but may be staying</li>
               <li>Grey: already alumni and graduated</li>
               <li>red: invalid input</li>
