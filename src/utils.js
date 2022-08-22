@@ -7,18 +7,18 @@ export const ageCalculator = (members) => {
       const { birthday: bBirth, startDate: bStart } = bObj;
 
       if (
-        !bBirth.year ||
-        !bBirth.month ||
-        !bBirth.day ||
+        !aBirth.year ||
+        !aBirth.month ||
+        !aBirth.day ||
         !aStart.year ||
         !aStart.month ||
         !aStart.day
       ) {
         return 1;
       } else if (
-        !aBirth.year ||
-        !aBirth.month ||
-        !aBirth.day ||
+        !bBirth.year ||
+        !bBirth.month ||
+        !bBirth.day ||
         !bStart.year ||
         !bStart.month ||
         !bStart.day
