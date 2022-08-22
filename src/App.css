@@ -12,6 +12,17 @@ table {
 
 th,
 td {
-  border: 1px solid;
+  /* border: 1px solid; */
   padding: 10px;
+}
+
+.color-circle-wrapper {
+  display: grid;
+  justify-items: center;
+}
+
+.color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }

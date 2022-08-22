@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ageCalculator } from "./utils";
+import { ageCalculator, removeR } from "./utils";
 import "./App.css";
 
 function App() {
@@ -19,20 +19,24 @@ function App() {
     const array = csvRows.map((i) => {
       const values = i.split(",");
       const obj = csvHeader.reduce((object, header, index) => {
-        if (header[header.length - 1] === "\r") {
-          header = header.slice(0, header.length - 1);
-        }
+        header = removeR(header);
+        values[index] = removeR(values[index]);
+
         if (header === "Name") {
           object.name = values[index];
         } else if (header === "Birthday") {
-          const [year, month, day] = values[index].split("/");
+          const [year, month, day] = values[index]
+            .split("/")
+            .map((val) => Number(val));
 
           object.birthday = {};
           object.birthday.year = year;
           object.birthday.month = month;
           object.birthday.day = day;
         } else if (header === "Registration") {
-          const [year, month, day] = values[index].split("/");
+          const [year, month, day] = values[index]
+            .split("/")
+            .map((val) => Number(val));
 
           object.startDate = {};
           object.startDate.year = year;
@@ -71,6 +75,11 @@ function App() {
         <div>
           <img src="/sample.png" alt="sample" width="500px" />
         </div>
+        {/* <h3>Color</h3>
+        <p>Green: have more than a year until becoming alumni</p>
+        <p>Yellow: will become alumni within a year</p>
+        <p>Grey: has become alumni and graduated</p>
+        <p>red: invalid input</p> */}
       </div>
 
       <hr />
@@ -96,6 +105,7 @@ function App() {
       <table>
         <thead>
           <tr key="header">
+            <th key="color">Color</th>
             <th key="name">Name</th>
             <th key="status">Status</th>
           </tr>
@@ -104,9 +114,14 @@ function App() {
         <tbody>
           {array.map((item, i) => (
             <tr key={i}>
-              {Object.values(item).map((val) => (
-                <td key={val}>{val}</td>
-              ))}
+              <td className="color-circle-wrapper">
+                <div
+                  className="color-circle"
+                  style={{ backgroundColor: item.color }}
+                />
+              </td>
+              <td>{item.name}</td>
+              <td>{item.status}</td>
             </tr>
           ))}
         </tbody>
