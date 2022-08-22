@@ -73,7 +73,7 @@ function App() {
           using the app such as Excel and Numbers.
         </p>
         <div>
-          <img src="/sample.png" alt="sample" width="500px" />
+          <img src="/sample.png" alt="sample" className="sample-image" />
         </div>
         {/* <h3>Color</h3>
         <p>Green: have more than a year until becoming alumni</p>
