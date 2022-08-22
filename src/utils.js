@@ -106,7 +106,7 @@ export const ageCalculator = (members) => {
 
 const convertDateToLocal = (date) => {
   const year = date.getFullYear();
-  const month = date.getMonth() + 1;
+  const month = date.getMonth();
   const day = date.getDate();
 
   const thisDay = new Date(year, month, day);
