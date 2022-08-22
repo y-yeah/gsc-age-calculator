@@ -1,0 +1,17 @@
+main {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+}
+
+table {
+  border: 1px solid;
+  border-collapse: collapse;
+  min-width: 70%;
+}
+
+th,
+td {
+  border: 1px solid;
+  padding: 10px;
+}
