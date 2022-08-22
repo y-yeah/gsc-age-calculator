@@ -70,11 +70,18 @@ function App() {
         <div>
           <img src="/sample.png" alt="sample" className="sample-image" />
         </div>
-        {/* <h3>Color</h3>
-        <p>Green: have more than a year until becoming alumni</p>
-        <p>Yellow: will become alumni within a year</p>
-        <p>Grey: has become alumni and graduated</p>
-        <p>red: invalid input</p> */}
+        <div className="color-description-wrapper">
+          <b>About Color</b>
+          <div className="color-description-ul">
+            <ul>
+              <li>Green: have more than a year until alumni</li>
+              <li>Yellow: will become alumni within a year</li>
+              <li>Pink: already alumni but may be staying</li>
+              <li>Grey: already alumni and graduated</li>
+              <li>red: invalid input</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <hr />
@@ -94,7 +101,7 @@ function App() {
       <table>
         <thead>
           <tr key="header">
-            <th key="color">Priority</th>
+            <th key="color">Color</th>
             <th key="name">Name</th>
             <th key="status">Status</th>
           </tr>
@@ -103,7 +110,7 @@ function App() {
         <tbody>
           {array.map((item, i) => (
             <tr key={i}>
-              <td className="color-circle-wrapper">
+              <td>
                 <div
                   className="color-circle"
                   style={{ backgroundColor: item.color }}

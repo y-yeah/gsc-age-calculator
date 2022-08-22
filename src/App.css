@@ -14,16 +14,20 @@ td {
   padding: 10px;
 }
 
+.color-description-wrapper {
+  width: 20%;
+  margin: auto;
+  min-width: 320px;
+}
+
+.color-description-ul {
+  text-align: left;
+  font-size: 14px;
+}
+
 .sample-image {
   width: 80%;
   max-width: 500px;
-}
-
-.color-circle-wrapper {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  height: 100%;
 }
 
 .color-circle {
