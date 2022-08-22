@@ -66,7 +66,7 @@ function App() {
 
   return (
     <main>
-      <h1>GSC Age Calculator</h1>
+      <h1>GSC Graduation Date Calculator</h1>
       <div>
         <p>
           Create a CSV file (.csv) like below and upload it. You can make a CSV
