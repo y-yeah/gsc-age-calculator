@@ -9,7 +9,7 @@ export const ageCalculator = (members) => {
       if (!b.year || !b.month || !b.day) {
         return -1;
       } else if (!a.year || !a.month || !a.day) {
-        return -1;
+        return 1;
       } else {
         const aDate = new Date(a.year, a.month - 1, a.day);
         const bDate = new Date(b.year, b.month - 1, b.day);
