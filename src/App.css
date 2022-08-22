@@ -1,19 +1,16 @@
 main {
   text-align: center;
-  display: grid;
-  justify-items: center;
-  width: 100%;
 }
 
 table {
   border: 1px solid;
   border-collapse: collapse;
   min-width: 70%;
+  display: inline-table;
 }
 
 th,
 td {
-  /* border: 1px solid; */
   padding: 10px;
 }
 
