@@ -41,11 +41,12 @@ export const ageCalculator = (members) => {
         const birthdayDate = new Date(year, month - 1, day);
         const joiningDate = new Date(joinYear, joinMonth - 1, joinDay);
 
+        // 2020/07/01から新ルール適用
         const turningPoint = new Date(2020, 7 - 1, 1);
 
         let maxAge;
 
-        if (joiningDate - turningPoint > 0) {
+        if (joiningDate - turningPoint >= 0) {
           maxAge = 30;
         } else {
           maxAge = 33;
