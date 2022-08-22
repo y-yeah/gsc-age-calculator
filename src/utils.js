@@ -3,18 +3,32 @@ export const ageCalculator = (members) => {
 
   members
     .sort((aObj, bObj) => {
-      const a = aObj.birthday;
-      const b = bObj.birthday;
+      const { birthday: aBirth, startDate: aStart } = aObj;
+      const { birthday: bBirth, startDate: bStart } = bObj;
 
-      if (!b.year || !b.month || !b.day) {
-        return -1;
-      } else if (!a.year || !a.month || !a.day) {
+      if (
+        !bBirth.year ||
+        !bBirth.month ||
+        !bBirth.day ||
+        !aStart.year ||
+        !aStart.month ||
+        !aStart.day
+      ) {
         return 1;
+      } else if (
+        !aBirth.year ||
+        !aBirth.month ||
+        !aBirth.day ||
+        !bStart.year ||
+        !bStart.month ||
+        !bStart.day
+      ) {
+        return -1;
       } else {
-        const aDate = new Date(a.year, a.month - 1, a.day);
-        const bDate = new Date(b.year, b.month - 1, b.day);
+        const aBirthday = new Date(aBirth.year, aBirth.month - 1, aBirth.day);
+        const bBirthday = new Date(bBirth.year, bBirth.month - 1, bBirth.day);
 
-        return aDate - bDate;
+        return aBirthday - bBirthday;
       }
     })
     .forEach((member) => {
