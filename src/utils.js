@@ -124,7 +124,7 @@ export const removeR = (text) => {
 const colorMaker = (date) => {
   const days = (date - new Date()) / (24 * 60 * 60 * 1000);
   if (days <= 0) {
-    return "plum";
+    return "mistyrose";
   }
   if (days <= 365) {
     return "gold";

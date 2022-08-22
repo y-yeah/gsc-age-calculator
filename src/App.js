@@ -94,7 +94,7 @@ function App() {
       <table>
         <thead>
           <tr key="header">
-            <th key="color">Color</th>
+            <th key="color">Priority</th>
             <th key="name">Name</th>
             <th key="status">Status</th>
           </tr>
