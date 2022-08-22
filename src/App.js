@@ -16,7 +16,7 @@ function App() {
         csvFileToArray(text);
       };
 
-      fileReader.readAsText(e.target.files[0]);
+      fileReader.readAsText(file);
     }
   };
 
