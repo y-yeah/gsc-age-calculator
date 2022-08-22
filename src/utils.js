@@ -6,10 +6,10 @@ export const ageCalculator = (members) => {
       const a = aObj.birthday;
       const b = bObj.birthday;
 
-      if (b === undefined) {
+      if (!b.year || !b.month || !b.day) {
         return -1;
-      } else if (a === undefined) {
-        return 1;
+      } else if (!a.year || !a.month || !a.day) {
+        return -1;
       } else {
         const aDate = new Date(a.year, a.month - 1, a.day);
         const bDate = new Date(b.year, b.month - 1, b.day);
@@ -20,22 +20,14 @@ export const ageCalculator = (members) => {
     .forEach((member) => {
       const { name, birthday, startDate } = member;
 
-      if (
-        birthday.year === "" ||
-        birthday.month === undefined ||
-        birthday.day === undefined
-      ) {
+      if (!birthday.year || !birthday.month || !birthday.day) {
         result.push({
           name,
           status: "Tell me his/her birthday!",
           color: "red",
         });
         return;
-      } else if (
-        startDate.year === "" ||
-        startDate.month === undefined ||
-        startDate.day === undefined
-      ) {
+      } else if (!startDate.year || !startDate.month || !startDate.day) {
         result.push({
           name,
           status: "Tell me his/her registration date!",
