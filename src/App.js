@@ -3,13 +3,21 @@ import { ageCalculator, removeR } from "./utils";
 import "./App.css";
 
 function App() {
-  const [file, setFile] = useState();
   const [array, setArray] = useState([]);
 
   const fileReader = new FileReader();
 
   const handleOnChange = (e) => {
-    setFile(e.target.files[0]);
+    const file = e.target.files[0];
+
+    if (file) {
+      fileReader.onload = function (event) {
+        const text = event.target.result;
+        csvFileToArray(text);
+      };
+
+      fileReader.readAsText(e.target.files[0]);
+    }
   };
 
   const csvFileToArray = (string) => {
@@ -51,19 +59,6 @@ function App() {
     setArray(ageCalculator(array));
   };
 
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-
-    if (file) {
-      fileReader.onload = function (event) {
-        const text = event.target.result;
-        csvFileToArray(text);
-      };
-
-      fileReader.readAsText(file);
-    }
-  };
-
   return (
     <main>
       <h1>GSC Graduation Date Calculator</h1>
@@ -83,6 +78,7 @@ function App() {
       </div>
 
       <hr />
+      <br />
 
       <form>
         <input
@@ -91,13 +87,6 @@ function App() {
           accept=".csv"
           onChange={handleOnChange}
         />
-        <button
-          onClick={(e) => {
-            handleOnSubmit(e);
-          }}
-        >
-          Calculate!
-        </button>
       </form>
 
       <br />
