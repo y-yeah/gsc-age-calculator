@@ -78,7 +78,7 @@ function App() {
               <li>Yellow: will graduate within a year</li>
               <li>Pink: already alumni but may be staying</li>
               <li>Grey: already alumni and graduated</li>
-              <li>red: invalid input</li>
+              <li>Red: invalid input</li>
             </ul>
           </div>
         </div>
