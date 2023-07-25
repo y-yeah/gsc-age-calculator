@@ -24,43 +24,49 @@ function App() {
     const csvHeader = string.slice(0, string.indexOf("\n")).split(",");
     const csvRows = string.slice(string.indexOf("\n") + 1).split("\n");
 
-    const array = csvRows.map((i) => {
-      const values = i.split(",");
+    const members = csvRows
+      .map((row) => {
+        const rowArray = row.split(",");
 
-      const obj = csvHeader.reduce((object, header, index) => {
-        header = removeR(header);
-        values[index] = removeR(values[index]);
+        const member = csvHeader.reduce((member, header, index) => {
+          header = removeR(header);
+          rowArray[index] = removeR(rowArray[index]);
 
-        if (header === "Name") {
-          object.name = values[index];
-        } else if (header === "Birthday") {
-          const [year, month, day] = values[index]
-            .split("/")
-            .map((val) => Number(val));
+          if (rowArray[index] === undefined) {
+            return {};
+          }
 
-          object.birthday = {
-            year,
-            month,
-            day,
-          };
-        } else if (header === "Registration") {
-          const [year, month, day] = values[index]
-            .split("/")
-            .map((val) => Number(val));
+          if (header === "Name") {
+            member.name = rowArray[index];
+          } else if (header === "Birthday") {
+            const [year, month, day] = rowArray[index]
+              .split("/")
+              .map((val) => Number(val));
 
-          object.startDate = {
-            year,
-            month,
-            day,
-          };
-        }
-        return object;
-      }, {});
+            member.birthday = {
+              year,
+              month,
+              day,
+            };
+          } else if (header === "Registration") {
+            const [year, month, day] = rowArray[index]
+              .split("/")
+              .map((val) => Number(val));
 
-      return obj;
-    });
+            member.startDate = {
+              year,
+              month,
+              day,
+            };
+          }
+          return member;
+        }, {});
 
-    setArray(ageCalculator(array));
+        return member;
+      })
+      .filter((member) => Object.entries(member).length);
+
+    setArray(ageCalculator(members));
   };
 
   return (
